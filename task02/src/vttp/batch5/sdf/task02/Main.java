@@ -34,14 +34,18 @@ public class Main {
 		b.createBoard();
 		b.returnBoard();
 
-		// read board, return all empty pos 
-		b.returnEmptyPos();
+		if (b.checkValidTurn()) {
+			// read board, return all empty pos 
+			b.returnEmptyPos();
 
-		// get utility of each pos 
-		b.getUtility();
+			// get utility of each pos 
+			b.getUtility();
 
-		// return utility 
-		b.returnUtility();
+			// return utility 
+			b.returnUtility();
+		} else {
+			System.out.println("Not X's turn");
+		}
 
 	}
 }

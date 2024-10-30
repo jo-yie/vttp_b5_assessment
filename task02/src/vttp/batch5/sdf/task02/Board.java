@@ -48,6 +48,31 @@ public class Board {
 
     }
 
+    // check valid turn (returns false if more Xs than Os)
+    public boolean checkValidTurn() {
+        int Xcount = 0; 
+        int Ocount = 0;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+                if (board[i][j].equals("X")) {
+                    Xcount++; 
+                } else if (board[i][j].equals("O")) {
+                    Ocount++;
+                }
+
+            }
+        }
+
+        if (Xcount > Ocount) {
+            return false; 
+        } else {
+            return true;
+        }
+    
+    }
+
     // return empty positions on board
     public void returnEmptyPos() {
 
@@ -59,6 +84,7 @@ public class Board {
                     Integer[] intoMap = {i, j};
                     utility.put(intoMap, 0);
                 }
+
             }
         }
 
