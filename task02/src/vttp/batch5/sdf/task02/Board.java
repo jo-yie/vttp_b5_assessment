@@ -6,8 +6,8 @@ import java.util.*;
 public class Board {
     File tttFile;
     String[][] board = {{"", "", ""},
-                            {"", "", ""},
-                            {"", "", ""}};
+                        {"", "", ""},
+                        {"", "", ""}};
     HashMap<Integer[], Integer> utility = new HashMap<>();
     
 
@@ -17,6 +17,7 @@ public class Board {
 
     // populate String[][] board using tttFile
     public void createBoard() throws IOException {
+
         // read TTT board from file 
         FileReader fr = new FileReader(tttFile);
         BufferedReader br = new BufferedReader(fr);
@@ -53,12 +54,8 @@ public class Board {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j].equals(".")) {
-                    String y = String.valueOf(i); 
-                    String x = String.valueOf(j);
-
-                    // System.out.printf("y=%s, x=%s\n", y, x);
                     
-                    // put y, x into map 
+                    // put y (=i), x (=j) into map 
                     Integer[] intoMap = {i, j};
                     utility.put(intoMap, 0);
                 }
@@ -98,13 +95,6 @@ public class Board {
     // evaluate board 
     public int evaluateBoard(String[][] board, Integer[] position) {
 
-        // System.out.println(position[0] + ", " + position[1] + ": ");
-        // System.out.println("rows: " + checkRows(board));
-        // System.out.println("columns: " + checkColumns(board));
-
-        // System.out.println("diag1: " + checkDiag1(board));
-        // System.out.println("diag2: " + checkDiag2(board));
-
         int[] results = {checkRows(board), checkColumns(board), checkDiag1(board), checkDiag2(board)};
         int result = 0;
         for (int r : results) { 
@@ -125,7 +115,6 @@ public class Board {
 
         int result = 0;
 
-        // check rows WORKING
         for (int i = 0; i < 3; i++) {
             int Xcounter = 0; 
             int Ocounter = 0; 
@@ -141,16 +130,11 @@ public class Board {
                 }
             }
 
-            // System.out.println("Xcounter: " + Xcounter);
-            // System.out.println("Ocounter: " + Ocounter);
-            // System.out.println("dotCounter: " + dotCounter);
-
             if (Xcounter == 3) {
                 result = 1; 
                 return result;
             } else if (Ocounter == 2 && dotCounter == 1) {
                 result = -1; 
-                // return result;
             } 
 
 
@@ -165,7 +149,6 @@ public class Board {
 
         int result = 0;
 
-        // check columns WORKING 
         for (int i = 0; i < 3; i++) {
             int Xcounter = 0; 
             int Ocounter = 0; 
@@ -181,16 +164,11 @@ public class Board {
                 }
             }
 
-            // System.out.println("Xcounter: " + Xcounter);
-            // System.out.println("Ocounter: " + Ocounter);
-            // System.out.println("dotCounter: " + dotCounter);
-
             if (Xcounter == 3) {
                 result = 1; 
                 return result;
             } else if (Ocounter == 2 && dotCounter == 1) {
                 result = -1; 
-                // return result;
             } 
 
         }
@@ -204,7 +182,6 @@ public class Board {
 
         int result = 0;
 
-        // check diags 
         String diag1A = board[0][0];
         String diag1B = board[1][1];
         String diag1C = board[2][2];
@@ -215,7 +192,6 @@ public class Board {
         int dotCounter = 0; 
 
         for (String s : diag1) {
-
 
             if (s.equals("X")){
                 Xcounter++; 
@@ -232,14 +208,9 @@ public class Board {
             return result;
         } else if (Ocounter == 2 && dotCounter == 1) {
             result = -1; 
-            // return result;
         } 
 
         return result;
-
-        // System.out.println("Xcounter: " + Xcounter);
-        // System.out.println("Ocounter: " + Ocounter);
-        // System.out.println("dotCounter: " + dotCounter);
 
     }
 
@@ -274,14 +245,10 @@ public class Board {
             return result;
         } else if (Ocounter == 2 && dotCounter == 1) {
             result = -1; 
-            // return result;
         } 
 
         return result;
 
-        // System.out.println("Xcounter: " + Xcounter);
-        // System.out.println("Ocounter: " + Ocounter);
-        // System.out.println("dotCounter: " + dotCounter);
     }
 
     // place piece on board 
@@ -292,23 +259,13 @@ public class Board {
 
         board[y][x] = marker;
 
-        // for (int i = 0; i < 3; i++) {
-        //     for (int j = 0; j < 3; j++) {
-        //         System.out.print(board[i][j]);
-        //     }
-        //     System.out.println();
-        // }
-        // System.out.println("\n------------");
-
     }
 
-    // return utility 
+    // print empty positions + utility 
     public void returnUtility() { 
         for (Integer[] xy : utility.keySet()) {
             System.out.printf("y=%d, x=%d, utility=%d\n", xy[0], xy[1], utility.get(xy));
         }
     }
 
-    
-    
 }
