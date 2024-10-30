@@ -91,7 +91,7 @@ public class Main {
 			holidayStr = "not a holiday";
 		}
 
-		System.out.printf("The %s recorded number of cyclists was in %s, on a %s in the month of %s. There were a total of %d cyclists. The weather was %s.\n%s was %s.\n", position, season, day, month, total, weather, day, holidayStr);
+		System.out.printf("The %s (position) recorded number of cyclists was in %s (season), on a %s (day) in the month of %s (month). There were a total of %d (total) cyclists. The weather was %s (weather).\n%s (day) was %s.\n", position, season, day, month, total, weather, day, holidayStr);
 
 	}
 
