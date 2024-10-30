@@ -36,7 +36,7 @@ public class Utils {
 			case 4:
 			case 5:
 			case 6:
-				return DAY[weekday - 1];
+				return DAY[weekday];
 			default:
 				return "incorrect day";
 		}
