@@ -11,10 +11,10 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		// instantiate BikeEntry class
+		// instantiate Bike class
 		Bike be = new Bike();
 
-		// store BikeEntry(s) in List<BikeEntry> bikeList
+		// store Bikes in List<Bike> bikeList
 		List<Bike> bikeList = new ArrayList<>();
 
 		// create new File
@@ -41,7 +41,7 @@ public class Main {
 
 		}
 
-		// sort bikeList by num casual + registered users (totalCyclists)
+		// sort bikeList by num casual + num registered users (totalCyclists)
 		Comparator<Bike> compare = Comparator.comparing(Bike::getTotalCyclists, Comparator.reverseOrder());
 		bikeList.sort(compare);
 
