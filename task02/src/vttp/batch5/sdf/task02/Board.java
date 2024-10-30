@@ -163,7 +163,6 @@ public class Board {
                 result = -1; 
             } 
 
-
         }
 
         return result;
@@ -207,11 +206,7 @@ public class Board {
     public int checkDiag1(String[][] board) {
 
         int result = 0;
-
-        String diag1A = board[0][0];
-        String diag1B = board[1][1];
-        String diag1C = board[2][2];
-        String[] diag1 = {diag1A, diag1B, diag1C};
+        String[] diag1 = {board[0][0], board[1][1], board[2][2]};
 
         int Xcounter = 0; 
         int Ocounter = 0; 
@@ -244,11 +239,7 @@ public class Board {
     public int checkDiag2(String[][] board) {
 
         int result = 0;
-
-        String diag2A = board[0][2]; 
-        String diag2B = board[1][1];
-        String diag2C = board[2][0];
-        String[] diag2 = {diag2A, diag2B, diag2C};
+        String[] diag2 = {board[0][2], board[1][1], board[2][0]};
 
         int Xcounter = 0; 
         int Ocounter = 0; 
